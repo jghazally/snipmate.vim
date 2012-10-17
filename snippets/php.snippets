@@ -223,21 +223,23 @@ snippet pluginhead
 	 ${6}
 snippet registercpt
 		$labels = array(
-			'name' => _x( '${1:CPT Name}', 'post type name', '${2:Localization}' ),
-			'singular_name' => _x( '${1:CPT Name}', 'post type singular name', '${2:Localization}' ),
-			'add_new' => _x( 'Add New', 'admin menu: add new slide', '${2:Localization}' ),
-			'add_new_item' => __('Add New ${1:CPT Name}', '${2:Localization}' ),
-			'edit_item' => __('Edit ${1:CPT Name}', '${2:Localization}' ),
-			'new_item' => __('New ${1:CPT Name}', '${2:Localization}' ),
-			'view_item' => __('View ${1:CPT Name}', '${2:Localization}' ),
-			'search_items' => __('Search ${1:CPT Name}', '${2:Localization}' ),
-			'not_found' =>  __('No ${1:CPT Name} found', '${2:Localization}' ),
-			'not_found_in_trash' => __( 'No ${1:CPT Name} found in Trash', '${2:Localization}' ),
+			'name' => _x('${1:CPT}', 'post type name', '${2:Localization}'),
+			'singular_name' => _x('${1:CPT}', 'post type singular name', '${2:Localization}'),
+			'add_new' => _x('Add New', 'admin menu: add new slide', '${2:Localization}'),
+			'add_new_item' => __('Add New ${1:CPT}', '${2:Localization}'),
+			'edit_item' => __('Edit ${1:CPT}', '${2:Localization}'),
+			'new_item' => __('New ${1:CPT}', '${2:Localization}'),
+			'view_item' => __('View ${1:CPT}', '${2:Localization}'),
+			'search_items' => __('Search ${1:CPT}', '${2:Localization}'),
+			'not_found' => __('No ${1:CPT} found', '${2:Localization}'),
+			'not_found_in_trash' => __('No ${1:CPT} found in Trash', '${2:Localization}'),
 			'parent_item_colon' => '',
-			'menu_name' => __( '${1:CPT Name}', '${2:Localization}' )
+			'menu_name' => __('${1:CPT}', '${2:Localization}'),
 		);
-		// ${1:CPT Name}
-		register_post_type( '${1:CPT Name}', array(
+		// ${1:CPT}
+		register_post_type(
+			'${1:CPT}',
+			array(
 				'capability_type' => 'post',
 				'hierarchical' => true,
 				'exclude_from_search' => true,
@@ -246,15 +248,16 @@ snippet registercpt
 				'show_in_nav_menus' => true,
 				'labels' => $labels,
 				'query_var' => true,
-				'supports' => array( 
-						'thumbnail',
-						'title',
-						'editor',
-						'custom-fields'
-					),
+				'supports' => array(
+					'thumbnail',
+					'title',
+					'editor',
+					'custom-fields',
+				),
 				'register_meta_box_cb' => ${3:metabox_callback},
 				'rewrite' => array(
-					'slug' => '${1:CPT Name}',
-					'with_front' => false
-				)
-			) );
+					'slug' => '${1:CPT}',
+					'with_front' => false,
+				),
+			)
+		);
